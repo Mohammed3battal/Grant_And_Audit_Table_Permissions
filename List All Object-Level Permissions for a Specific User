@@ -1,0 +1,14 @@
+SELECT 
+    princ.name AS UserName,
+    princ.type_desc AS UserType,
+    perm.permission_name,
+    perm.state_desc AS PermissionState,
+    obj.name AS ObjectName,
+    obj.type_desc AS ObjectType
+FROM sys.database_permissions perm
+JOIN sys.database_principals princ 
+    ON perm.grantee_principal_id = princ.principal_id
+LEFT JOIN sys.objects obj 
+    ON perm.major_id = obj.object_id
+WHERE princ.name = 'YourUserName'  -- Replace with the actual user name
+ORDER BY perm.permission_name;
