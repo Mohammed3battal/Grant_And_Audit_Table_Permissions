@@ -1,0 +1,5 @@
+USE YourDatabaseName;  -- Replace with your database name
+
+GRANT SELECT, INSERT, UPDATE, DELETE 
+ON [dbo].[TableName] 
+TO [UserName];  -- Replace with the target SQL user or login
